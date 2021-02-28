@@ -94,7 +94,8 @@ def parse_format(element, d=0):
     return '{}(children=[{}])'.format(tag, ",\n".join(args))
 
 
-if __name__ == '__main__':
+def main():
+    global element_str
     parser = argparse.ArgumentParser(description='Convert HTML into Python Code for Dash with bootstrap')
     parser.add_argument('-i', action="store", dest="infile", default=None, help="input file")
     parser.add_argument('-o', action='store', dest="outfile", default=None, help="output file")
@@ -124,3 +125,7 @@ if __name__ == '__main__':
                     f.write(output)
 
     print(output)
+
+
+if __name__ == '__main__':
+    main()

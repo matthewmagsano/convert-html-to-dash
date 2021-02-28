@@ -1,6 +1,10 @@
 # convert-html-to-dash
 
-This will help you convert some raw html into Python code for Dash and Plotly.
+A conversion tool to turn html/bootstrap into Python code for use with Dash and Plotly
+
+[convert-html-to-dash on pypi](https://pypi.org/project/convert-html-to-dash/0.1/)
+
+```pip install convert-html-to-dash==0.1```
 
 `python convert.py -h`
 ```
