@@ -18,7 +18,7 @@ URL = "https://github.com/mhowell86/convert-html-to-dash"
 EMAIL = "michael.j.howell@gmail.com"
 AUTHOR = "Michael Howell"
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
