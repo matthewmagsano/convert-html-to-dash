@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e9598f5111ddcfb28191552ebea484173438d12d7b6df29bf72ce86e689d25ae"
+            "sha256": "43b541664b13f531d22fd54f526f00e7c59cd982c0184a63d7b8690701ee6c2d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -82,16 +82,26 @@
             "index": "pypi",
             "version": "==1.19.0"
         },
+        "dash-bootstrap-components": {
+            "hashes": [
+                "sha256:3279208eb41503fbe3dc0c42cf92b2abd65c515223069fb6d4061cd205bba765",
+                "sha256:db7e7d5b1031073d088785295a56efdd515af14a9f485504b804af66a8098072"
+            ],
+            "index": "pypi",
+            "version": "==0.11.3"
+        },
         "dash-core-components": {
             "hashes": [
                 "sha256:b61cb37322de91b4feb0d4d823694cbba8686f6459db774b53d553135350c71e"
             ],
+            "index": "pypi",
             "version": "==1.15.0"
         },
         "dash-html-components": {
             "hashes": [
                 "sha256:83eaa39667b7c3e6cbefa360743e6e536d913269ea15db14308ad022c78bc301"
             ],
+            "index": "pypi",
             "version": "==1.1.2"
         },
         "dash-renderer": {
@@ -116,10 +126,9 @@
         },
         "flask-compress": {
             "hashes": [
-                "sha256:c132590e7c948877a96d675c13cbfa64edec0faafa2381678dea6f36aa49a552",
-                "sha256:fda1b8a834176c485c7018a4b9326599311afbaaa08a715771c1fd9021f871fa"
+                "sha256:d93edd8fc02ae74b73c3df10a8e7ee26dee489c65dedce0b3a1d2ce05ac3d1be"
             ],
-            "version": "==1.8.0"
+            "version": "==1.9.0"
         },
         "future": {
             "hashes": [
