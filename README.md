@@ -6,7 +6,7 @@ A conversion tool to turn html/bootstrap into Python code for use with Dash and 
 
 ```pip install convert-html-to-dash==0.1```
 
-`python convert.py -h`
+`python -m convert-html-to-dash -h`
 ```
 usage: convert.py [-h] [-i INFILE] [-o OUTFILE] [-p PRIORITY_LIST]
 
@@ -24,7 +24,7 @@ optional arguments:
                     Note: You can omit a modules too ie. -p html would only use html components
 ```
 
-`python convert.py -i infile.html -o outfile.html`
+`python -m convert-html-to-dash -i infile.html -o outfile.html`
 ```
   dbc.Container(
       className="container",
@@ -37,7 +37,7 @@ optional arguments:
                 ...
 ```
 
-`python convert.py -i infile.html -o outfile.html -p html`
+`python -m convert-html-to-dash -i infile.html -o outfile.html -p html`
 ```
 html.Div(
     className="container",
