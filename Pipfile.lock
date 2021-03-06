@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "43b541664b13f531d22fd54f526f00e7c59cd982c0184a63d7b8690701ee6c2d"
+            "sha256": "c944e61857a7b0ec3ad1252b2eaa05af462960105a17c2cc446df5cc275016a8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -74,6 +74,10 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==7.1.2"
+        },
+        "convert-html-to-dash": {
+            "path": ".",
+            "version": "==0.1.1"
         },
         "dash": {
             "hashes": [

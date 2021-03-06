@@ -10,6 +10,7 @@ black = "*"
 dash_html_components = "*"
 dash_bootstrap_components = "*"
 dash_core_components = "*"
+convert-html-to-dash = {path = "."}
 
 [dev-packages]
 black = "*"

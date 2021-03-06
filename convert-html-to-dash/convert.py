@@ -1,5 +1,7 @@
 import os
 import argparse
+import signal
+import sys
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -7,6 +9,10 @@ import dash_core_components as dcc
 from black import format_str, FileMode
 from lxml import etree
 from pathlib import Path
+
+def signal_handler(sig, frame):
+    print('Goodbye!')
+    sys.exit(0)
 
 element_str = """
 <div class="container" type="button">
@@ -96,35 +102,48 @@ def parse_format(element, d=0):
 
 def main():
     global element_str
+    global priority_list
     parser = argparse.ArgumentParser(description='Convert HTML into Python Code for Dash with bootstrap')
-    parser.add_argument('-i', action="store", dest="infile", default=None, help="input file")
+    parser.add_argument('-f', action="store", dest="fil", default=None, help="input file")
     parser.add_argument('-o', action='store', dest="outfile", default=None, help="output file")
+    parser.add_argument('-i', action='store_true', help="Interactive mode. (ctrl-c, ctrl-v, then add a terminating character. windows: ctrl-z, linux: ctrl-d.")
     parser.add_argument('-p', action="append", dest="priority_list", default=[],
                         help="priority list for replacing tags."
                              " :: Options: dcc = dash_core_components, dbc = dash_bootstrap_components, html = dash_html_components"
                              " :: Exanple: -p dbc -p html -p dcc"
                              " :: Default Order: dcc, dbc, html")
+
     results = parser.parse_args()
 
     if len(results.priority_list):
         priority_list = results.priority_list
 
-    if results.infile is not None:
-        if os.path.exists(results.infile):
-            element_str = Path(results.infile).read_text().replace('\n', '')
+    if results.i:
+        signal.signal(signal.SIGINT, signal_handler)
+        while True:
+            print("\nPaste your html here: \n")
+            text = sys.stdin.read()
+            root = etree.fromstring(text)
+            output = format_str(parse_format(root), mode=FileMode())
+            print(output)
 
-    root = etree.fromstring(element_str)
-    output = format_str(parse_format(root), mode=FileMode())
+    else:
+        if results.infile is not None:
+            if os.path.exists(results.infile):
+                element_str = Path(results.infile).read_text().replace('\n', '')
 
-    if results.outfile is not None:
-        if os.path.isfile(results.outfile):
-            overwrite = input('File already exists. Overwrite? Y = yes, N = no\n')
-            if overwrite.lower() == 'y':
-                # call the function that writes the file here. use 'w' on the open handle
-                with open(results.outfile, 'w') as f:
-                    f.write(output)
+        root = etree.fromstring(element_str)
+        output = format_str(parse_format(root), mode=FileMode())
 
-    print(output)
+        if results.outfile is not None:
+            if os.path.isfile(results.outfile):
+                overwrite = input('File already exists. Overwrite? Y = yes, N = no\n')
+                if overwrite.lower() == 'y':
+                    # call the function that writes the file here. use 'w' on the open handle
+                    with open(results.outfile, 'w') as f:
+                        f.write(output)
+
+        print(output)
 
 
 if __name__ == '__main__':

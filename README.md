@@ -2,29 +2,30 @@
 
 A conversion tool to turn html/bootstrap into Python code for use with Dash and Plotly
 
+I find the interactive mode most useful, but exiting the program from interactive mode is unreliable.
+
+This conversion only does so much. There are plenty of things that aren't converted fully such as dropdowns. This just creates a base framework. There is no intention of pushing the conversion process further at this time.
+
 [convert-html-to-dash on pypi](https://pypi.org/project/convert-html-to-dash/0.1/)
 
-```pip install convert-html-to-dash==0.1```
+```pip install convert-html-to-dash```
 
-`python -m convert-html-to-dash -h`
 ```
-usage: convert.py [-h] [-i INFILE] [-o OUTFILE] [-p PRIORITY_LIST]
+$ python -m convert-html-to-dash -h
+usage: __main__.py [-h] [-f FIL] [-o OUTFILE] [-i] [-p PRIORITY_LIST]
 
 Convert HTML into Python Code for Dash with bootstrap
 
-
 optional arguments:
   -h, --help        show this help message and exit
-  -i INFILE         input file
+  -f FIL            input file
   -o OUTFILE        output file
-  -p PRIORITY_LIST  priority list for replacing tags.
-                    Options: dcc = dash_core_components, dbc = dash_bootstrap_components, html = dash_html_components
-                    Exanple: -p dbc -p html -p dcc
-                    Default Order: dcc, dbc, html
-                    Note: You can omit a modules too ie. -p html would only use html components
+  -i                Interactive mode. (ctrl-c, ctrl-v, then add a terminating character. windows: ctrl-z, linux: ctrl-d.
+  -p PRIORITY_LIST  priority list for replacing tags. :: Options: dcc = dash_core_components, dbc = dash_bootstrap_components, html = dash_html_components :: Exanple: -p dbc -p html -p dcc :: Default Order: dcc, dbc, html
+
 ```
 
-`python -m convert-html-to-dash -i infile.html -o outfile.html`
+`python -m convert-html-to-dash -f infile.html -o outfile.py`
 ```
   dbc.Container(
       className="container",
@@ -37,7 +38,7 @@ optional arguments:
                 ...
 ```
 
-`python -m convert-html-to-dash -i infile.html -o outfile.html -p html`
+`python -m convert-html-to-dash -f infile.html -o outfile.py -p html`
 ```
 html.Div(
     className="container",

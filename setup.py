@@ -11,6 +11,9 @@ from shutil import rmtree
 
 from setuptools import find_packages, setup, Command
 
+# https://github.com/navdeep-G/setup.py
+# $ python setup.py upload
+
 # Package meta-data.
 NAME = 'convert-html-to-dash'
 DESCRIPTION = "A conversion tool to turn html/bootstrap into Python code for use with Dash and Plotly."
@@ -18,7 +21,7 @@ URL = "https://github.com/mhowell86/convert-html-to-dash"
 EMAIL = "michael.j.howell@gmail.com"
 AUTHOR = "Michael Howell"
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
